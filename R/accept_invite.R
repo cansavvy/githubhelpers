@@ -1,16 +1,15 @@
 #' Accept an invite
 #'
-#' Given an a user name, accept
+#' Given an a user name, accept all invites
 #'
-#' @param user THe username to accept the invites from
+#' @param user The username to accept the invites from
 #' @param git_pat If private repositories are to be retrieved, a github personal
 #' access token needs to be supplied. If none is supplied, then this will attempt to
 #' grab from a git pat set in the environment with usethis::create_github_token().
 #' Authorization handled by \link[cow]{get_git_auth}
 #' @param verbose TRUE/FALSE do you want more progress messages?
 #'
-#' @return a data frame with the repository's release information: tag_name and tag_date.
-#' NAs are returned in these columns if there are no releases.
+#' @return a response from GitHub's API
 #'
 #' @importFrom magrittr %>%
 #' @import dplyr
@@ -58,5 +57,5 @@ accept_all_invites <- function(user,
     }
   })
 
-  return(releases)
+  return(responses)
 }
