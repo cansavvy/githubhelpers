@@ -18,10 +18,9 @@
 #'
 #' @examples \dontrun{
 #'
-#' accept_all_invites("jhudsl-robot")
+#' accept_all_invites()
 #' }
-accept_all_invites <- function(user,
-                               git_pat = NULL,
+accept_all_invites <- function(git_pat = NULL,
                                verbose = TRUE) {
 
   # Try to get credentials other way
@@ -30,7 +29,6 @@ accept_all_invites <- function(user,
   git_pat <- try(auth_arg$password, silent = TRUE)
 
   invites_url <- "https://api.github.com/user/repository_invitations"
-  invites_url <- gsub("\\{user\\}", user, invites_url)
 
   # Github api get
   response <- httr::GET(

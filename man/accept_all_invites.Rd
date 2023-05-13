@@ -4,17 +4,17 @@
 \alias{accept_all_invites}
 \title{Accept an invite}
 \usage{
-accept_all_invites(user, git_pat = NULL, verbose = TRUE)
+accept_all_invites(git_pat = NULL, verbose = TRUE)
 }
 \arguments{
-\item{user}{The username to accept the invites from}
-
 \item{git_pat}{If private repositories are to be retrieved, a github personal
 access token needs to be supplied. If none is supplied, then this will attempt to
 grab from a git pat set in the environment with usethis::create_github_token().
 Authorization handled by \link[cow]{get_git_auth}}
 
 \item{verbose}{TRUE/FALSE do you want more progress messages?}
+
+\item{user}{The username to accept the invites from}
 }
 \value{
 a response from GitHub's API
@@ -25,6 +25,6 @@ Given an a user name, accept all invites
 \examples{
 \dontrun{
 
-accept_all_invites("jhudsl-robot")
+accept_all_invites()
 }
 }
